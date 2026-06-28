@@ -3,17 +3,48 @@
 <html>
 
 <head>
-    <title>Study Tracker</title>
+
+<title>
+Study Tracker
+</title>
+
 </head>
 
 
 <body>
 
-<h1>My Study Tracker 📚</h1>
 
-<h2>
-Today I studied {{ hours }} hours
-</h2>
+<h1>
+Study Tracker 📚
+</h1>
+
+
+<form action="/submit" method="POST">
+
+
+<label>
+How many hours did you study today?
+</label>
+
+
+<br><br>
+
+
+<input 
+type="number"
+name="hours"
+>
+
+
+<br><br>
+
+
+<button type="submit">
+Submit
+</button>
+
+
+</form>
 
 
 </body>
