@@ -1,25 +1,18 @@
+from flask import Flask, render_template
 import json
-#first version
 
-def study_time():
-    hours = int(input("how much hours you study today? "))
+app = Flask(__name__)
 
-    return hours
+def read_data():
+    with open("data.json" , "r") as file:
+        data = json.load(file)
 
-def match_goal(hours):
-    if hours >= 6:
-        print("good , keep going")
-    else:
-        print("haizz, not good , need to improve")
+    return data
 
-def store_study_data(hours):
-    with open("data.json" , "w") as file: # round 1 and 2
-        json.dump(hours, file,indent = 4)
+@app.route("/")
+def home():
+    hours = read_data()
 
+    return render_template("index.html", hours = hours)
 
-def main():
-    hours = study_time()
-    store_study_data(hours)
-    match_goal(hours)
-
-main()
+app.run(debug=True)
