@@ -1,19 +1,47 @@
-#first version
+# import flask
+# import json
 
-def study_time():
-    hours = int(input("how much hours you study today? "))
+from flask import Flask, render_template, request
+import json
 
-    return hours
+# create app with this file
+app = Flask(__name__) 
 
-def match_goal(hours):
+# save data into json
+def save_data(hours):
+    # store hours in a simple json object
+    data = {"hours": hours}
+    with open("data.json", "w") as file:
+        json.dump(data, file, indent=4)
+
+# message to user
+def messages(hours):
+    
     if hours >= 6:
-        print("good , keep going")
+        return "good bro, keep it going!"
     else:
-        print("haizz, not good , need to improve")
+        return "haizz, not ok enough, kill Distraction bro, only goal"
+    
 
+# home page
+@app.route("/")
+def home():
+    return render_template("home.html")
 
-def main():
-    hours = study_time()
-    match_goal(hours)
+# result page
+@app.route("/submit", methods=["POST"])
+def result():
 
-main()
+    hours = int(request.form["hours"])
+
+    save_data(hours)
+
+    message = messages(hours)
+
+    return render_template(
+        "result.html",
+        hours=hours,
+        message=message
+    )
+
+app.run(debug=True)
