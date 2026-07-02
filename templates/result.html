@@ -17,23 +17,44 @@ Result
 
 
 <h1>
-Today's Result 📊
+
+Study History 📊
 </h1>
 
 
 <h2>
-You studied {{ hours }} hours
+Last entry: {{ history[0].day if history }} — {{ history[0].hours if history }} hours
 </h2>
 
-
-<h2>
+<h3>
 {{ message }}
-</h2>
+</h3>
+
+<hr>
+
+<h3>All records (newest first)</h3>
+
+{% if history %}
+	<table border="1" cellpadding="6" cellspacing="0">
+		<tr>
+			<th>Day</th>
+			<th>Hours</th>
+		</tr>
+		{% for rec in history %}
+		<tr>
+			<td>{{ rec.day }}</td>
+			<td>{{ rec.hours }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% else %}
+	<p>No records yet.</p>
+{% endif %}
 
 
-<a href="/">
-Go back
-</a>
+<p>
+	<a href="/">Add another record</a>
+</p>
 
 
 </body>

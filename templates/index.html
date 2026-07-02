@@ -21,28 +21,23 @@ Study Tracker 📚
 
 <form action="/submit" method="POST">
 
+<label>
+What day is this record for?
+</label>
+<br>
+<input type="date" name="day">
+
+<br><br>
 
 <label>
-How many hours did you study today?
+How many hours did you study on that day?
 </label>
-
-
-<br><br>
-
-
-<input 
-type="number"
-name="hours"
->
-
+<br>
+<input type="number" name="hours" min="0" step="1" placeholder="e.g. 3">
 
 <br><br>
 
-
-<button type="submit">
-Submit
-</button>
-
+<button type="submit">Submit</button>
 
 </form>
 
