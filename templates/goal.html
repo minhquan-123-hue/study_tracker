@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Goals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .emoji {
+            font-size: 22px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Study Goals 🌟</h1>
+        <p>Here is your simple study plan for today:</p>
+
+        <ul>
+            {% for item in goals %}
+            <li><span class="emoji">📘</span> {{ item.subject }} — {{ item.time }}</li>
+            {% endfor %}
+        </ul>
+
+        <p>Keep going! You are doing great 💪</p>
+        <p><a href="/">Back to tracker</a></p>
+    </div>
+</body>
+</html>

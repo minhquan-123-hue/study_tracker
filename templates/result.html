@@ -1,63 +1,36 @@
 <!DOCTYPE html>
-
 <html>
-
-
 <head>
-
-<title>
-Result
-</title>
-
+    <title>Result</title>
 </head>
-
-
-
 <body>
+    <h1>Study History 📊</h1>
 
+    <h2>Last entry: {{ history[0].day if history }} — {{ history[0].hours if history }} hours</h2>
+    <h3>{{ message }}</h3>
 
-<h1>
+    <hr>
 
-Study History 📊
-</h1>
+    <h3>All records (newest first)</h3>
 
+    {% if history %}
+        <table border="1" cellpadding="6" cellspacing="0">
+            <tr>
+                <th>Day</th>
+                <th>Hours</th>
+            </tr>
+            {% for rec in history %}
+            <tr>
+                <td>{{ rec.day }}</td>
+                <td>{{ rec.hours }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No records yet.</p>
+    {% endif %}
 
-<h2>
-Last entry: {{ history[0].day if history }} — {{ history[0].hours if history }} hours
-</h2>
-
-<h3>
-{{ message }}
-</h3>
-
-<hr>
-
-<h3>All records (newest first)</h3>
-
-{% if history %}
-	<table border="1" cellpadding="6" cellspacing="0">
-		<tr>
-			<th>Day</th>
-			<th>Hours</th>
-		</tr>
-		{% for rec in history %}
-		<tr>
-			<td>{{ rec.day }}</td>
-			<td>{{ rec.hours }}</td>
-		</tr>
-		{% endfor %}
-	</table>
-{% else %}
-	<p>No records yet.</p>
-{% endif %}
-
-
-<p>
-	<a href="/">Add another record</a>
-</p>
-
-
+    <p><a href="/">Add another record</a></p>
+    <p><a href="/goal">Open study goals 🌟</a></p>
 </body>
-
-
 </html>

@@ -1,47 +1,22 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
-<title>
-Study Tracker
-</title>
-
+    <title>Study Tracker</title>
 </head>
-
-
 <body>
+    <h1>Study Tracker 📚</h1>
 
 
-<h1>
-Study Tracker 📚
-</h1>
+    <form action="/submit" method="POST">
+        <label>What day is this record for?</label><br>
+        <input type="date" name="day"><br><br>
 
+        <label>How many hours did you study on that day?</label><br>
+        <input type="number" name="hours" min="0" step="0.5" placeholder="e.g. 2.5"><br><br>
 
-<form action="/submit" method="POST">
+        <button type="submit">Submit</button>
+    </form>
 
-<label>
-What day is this record for?
-</label>
-<br>
-<input type="date" name="day">
-
-<br><br>
-
-<label>
-How many hours did you study on that day?
-</label>
-<br>
-<input type="number" name="hours" min="0" step="1" placeholder="e.g. 3">
-
-<br><br>
-
-<button type="submit">Submit</button>
-
-</form>
-
-
+    <p><a href="/goal">See your study goals 🌟</a></p>
 </body>
-
 </html>
