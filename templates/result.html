@@ -5,16 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Study Tracker - Result</title>
     <style>
-      body { font-family: Arial, sans-serif; padding: 2rem; }
-      .card { max-width: 600px; padding: 1rem; border: 1px solid #ddd; border-radius: 6px; }
+      body { font-family: Arial, sans-serif; padding: 2rem; background: #f7f7f7; }
+      .card { max-width: 600px; padding: 1rem 1.2rem; border: 1px solid #ddd; border-radius: 8px; background: white; }
+      ul { padding-left: 1.2rem; }
     </style>
   </head>
   <body>
     <h1>Result</h1>
     <div class="card">
+      <p><strong>Day:</strong> {{ day }}</p>
       <p><strong>Hours submitted:</strong> {{ hours }}</p>
       <p><strong>Message:</strong> {{ message }}</p>
     </div>
+
+    <h2>Study history</h2>
+    <ul>
+      {% for record in records %}
+      <li>{{ record.day }} - {{ record.hours }} hours</li>
+      {% else %}
+      <li>No study records yet.</li>
+      {% endfor %}
+    </ul>
+
     <p><a href="/">Back</a></p>
   </body>
 </html>

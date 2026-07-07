@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Study Tracker - Home</title>
     <style>
-      body { font-family: Arial, sans-serif; padding: 2rem; }
-      .box { max-width: 420px; margin: 2rem 0; }
-      input[type="number"]{ width: 100%; padding: 0.5rem; font-size: 1rem; }
-      button { margin-top: 0.5rem; padding: 0.5rem 1rem; font-size: 1rem; }
+      body { font-family: Arial, sans-serif; padding: 2rem; background: #f7f7f7; }
+      .box { max-width: 420px; margin: 2rem 0; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+      label { display: block; margin-bottom: 0.3rem; font-weight: bold; }
+      input { width: 100%; padding: 0.6rem; margin-bottom: 0.8rem; font-size: 1rem; box-sizing: border-box; }
+      button { padding: 0.6rem 1rem; font-size: 1rem; cursor: pointer; }
     </style>
   </head>
   <body>
     <h1>Study Tracker</h1>
+    <p>Log your study hours for each day.</p>
 
     <div class="box">
       <form action="/submit" method="post">
+        <label for="day">Select day:</label>
+        <input id="day" name="day" type="date" required>
+
         <label for="hours">Enter study hours:</label>
         <input id="hours" name="hours" type="number" min="0" step="1" required>
+
         <button type="submit">Submit Hours</button>
       </form>
     </div>
